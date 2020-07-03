@@ -2,6 +2,9 @@ body {
   font: 30px "Courier New", Courier, monospace;
   margin: 20px;
 }
+h1{
+  justify-content: center;
+}
 a {
   font: 30px "Times New Roman", Times, serif;
 }
@@ -70,8 +73,56 @@ ul {
 .status {
   font-weight: bold;
 }
-.padre{
+.padre {
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media screen and (max-width: 551px) {
+  h1{
+    font-size: 40px;
+  }
+  .buttonMove {
+    font: 12px "Lucida Console", Monaco, monospace;
+    padding: 6px;
+    margin-left: 5px;
+  }
+  .square {
+    float: left;
+    font-size: 24px;
+    line-height: 24px;
+    height: 34px;
+    margin-right: 3px;
+    margin-top: 3px;
+    border-radius: 15px;
+    padding: 0;
+    width: 34px;
+  }
+}
+@media screen and (max-width: 401px) {
+  h1{
+    font-size: 35px;
+  }
+  .buttonMove {
+    font: 10px "Lucida Console", Monaco, monospace;
+    padding: 3px;
+    margin-left: 3px;
+    margin-top: 5px;
+  }
+  .square {
+    float: left;
+    font-size: 16px;
+    line-height: 16px;
+    height: 30px;
+    margin-right: 3px;
+    margin-top: 3px;
+    border-radius: 15px;
+    padding: 0;
+    width: 30px;
+  }
+  .game {
+    flex-direction: column;
+    align-items: center;
+  }
 }
