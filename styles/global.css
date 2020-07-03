@@ -1,0 +1,70 @@
+body {
+    font: 30px "Courier New", Courier, monospace;
+    margin: 20px;
+  }
+  a {
+    font: 30px "Times New Roman", Times, serif;
+  }
+  p {
+    text-align: center;
+  }
+  ol, ul {
+    padding-left: 30px;
+  }
+  
+  .board-row:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+  
+  .status {
+    margin-bottom: 10px;
+  }
+  
+  .square {
+    font: 14px "Courier New";
+    background: #fff;
+    border: 1px solid #999;
+    float: left;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 34px;
+    height: 34px;
+    margin-right: 3px;
+    margin-top: 3px;
+    border-radius: 15px;
+    padding: 0;
+    text-align: center;
+    width: 34px;
+  }
+  
+  .square:focus {
+    outline: none;
+  }
+  
+  .kbd-navigation .square:focus {
+    background: #ddd;
+  }
+  
+  .game {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .game-info {
+    font: 14px "Courier New", Courier, monospace;
+    padding: 6px;
+    margin-left: 20px;
+  }
+  .buttonMove{
+    font: 14px "Lucida Console", Monaco, monospace;
+    padding: 6px;
+    margin-left: 20px;
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid #999;
+  }
+  #winner{
+    font-weight: bold;
+  }
