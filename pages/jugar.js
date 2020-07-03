@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-const Square = ({value,onClick}) => {
+const Square = ({ value, onClick }) => {
   return (
     <button className="square" onClick={onClick}>
       {value}
     </button>
   );
-}
+};
 
 class Board extends React.Component {
   renderSquare(i) {
@@ -72,22 +72,22 @@ export default class Game extends React.Component {
       xIsNext: !this.state.xIsNext,
     });
   }
-  jumpTo(step){
+  jumpTo(step) {
     this.setState({
       stepNumber: step,
-      xIsNext: (step % 2) === 0,
+      xIsNext: step % 2 === 0,
     });
   }
   render() {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
-    
+
     const moves = history.map((step, move) => {
-      const desc = move ? 'Go to move #' + move : 'Go to game start';
+      const desc = move ? "Go to move #" + move : "Go to game start";
       return (
         <li key={move}>
-          <button className='buttonMove' onClick={() => this.jumpTo(move)}>
+          <button className="buttonMove" onClick={() => this.jumpTo(move)}>
             {desc}
           </button>
         </li>
@@ -100,16 +100,19 @@ export default class Game extends React.Component {
       status = "Next player: " + (this.state.xIsNext ? "X" : "O");
     }
     return (
-      <div className="game">
-        <div className="game-board">
-          <Board
-            squares={current.squares}
-            onClick={i => this.handleClick(i)}
-          />
-        </div>
-        <div className="game-info">
-          <div id="winner">{status}</div>
-          <ol>{moves}</ol>
+      <div className="padre">
+        <h1>Tic Tac Toe</h1>
+        <div className="game">
+          <div className="game-board">
+            <Board
+              squares={current.squares}
+              onClick={(i) => this.handleClick(i)}
+            />
+          </div>
+          <div className="game-info">
+            <div className="status">{status}</div>
+            <ol>{moves}</ol>
+          </div>
         </div>
       </div>
     );
