@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 
 const Square = ({ value, onClick }) => {
   return (
@@ -96,12 +95,12 @@ export default class Game extends React.Component {
     let status;
     if (winner) {
       status = "Winner: " + winner;
-    } else if(history.length > 9){
+    } else if (history.length > 9) {
       status = "DRAW";
-    }else{
+    } else {
       status = "Next player: " + (this.state.xIsNext ? "X" : "O");
     }
-    
+
     return (
       <div className="padre">
         <h1>Tic Tac Toe</h1>
