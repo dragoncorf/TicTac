@@ -1,18 +1,45 @@
 body {
   font: 30px "Courier New", Courier, monospace;
   margin: 20px;
+  background-color: deepskyblue;
 }
-h1{
+.saludo{
+  display: flex;
+  font-weight: bold;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+}
+.enlacesIndex{
+  font: 14px "Courier New";
+  background: #fff;
+  border: 1px solid #fff;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 15px;
+  margin: 10px;
+}
+.buttonList{
+  display: flex;
   justify-content: center;
 }
-a {
-  font: 30px "Times New Roman", Times, serif;
+h1{
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 10px;
 }
+
 p {
   text-align: center;
 }
+
 ol,
 ul {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   padding-left: 30px;
 }
 
@@ -24,12 +51,14 @@ ul {
 
 .status {
   margin-bottom: 10px;
+  background-color: #fff;
+  border-radius: 10px;
 }
 
 .square {
   font: 14px "Courier New";
   background: #fff;
-  border: 1px solid #999;
+  border: 1px solid #fff;
   float: left;
   font-size: 24px;
   font-weight: bold;
@@ -54,6 +83,7 @@ ul {
 .game {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .game-info {
@@ -68,10 +98,14 @@ ul {
   margin-top: 7px;
   background: #fff;
   border-radius: 5px;
-  border: 1px solid #999;
+  border: 1px solid #fff;
+  background-color: #fff;
+  border-radius: 10px;
 }
 .status {
   font-weight: bold;
+  display: flex;
+  justify-content: center;
 }
 .padre {
   max-width: 500px;
