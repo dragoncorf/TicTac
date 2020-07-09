@@ -1,6 +1,7 @@
 import Link from "next/link";
+import { FunctionComponent } from "react";
 
-export default function Home() {
+const Home: FunctionComponent = () => {
   return (
     <div>
       <div className="saludo">
@@ -21,3 +22,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Home;

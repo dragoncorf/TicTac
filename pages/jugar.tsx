@@ -8,7 +8,11 @@ const Square = ({ value, onClick }) => {
   );
 };
 
-class Board extends React.Component {
+interface BoardProps{
+  squares: string[],
+  onClick: (i: number) => void;
+}
+class Board extends React.Component<BoardProps> {
   renderSquare(i) {
     return (
       <Square
@@ -40,8 +44,17 @@ class Board extends React.Component {
   }
 }
 
-export default class Game extends React.Component {
-  constructor(props) {
+interface GameProps{
+}
+
+interface GameState{
+  history: { squares: string[] }[],
+  stepNumber: number,
+  xIsNext: boolean;
+}
+
+export default class Game extends React.Component<GameProps,GameState> {
+  constructor(props:GameProps) {
     super(props);
     this.state = {
       history: [
@@ -53,7 +66,7 @@ export default class Game extends React.Component {
       xIsNext: true,
     };
   }
-  handleClick(i) {
+  handleClick(i: number): void {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
     const squares = current.squares.slice();
@@ -71,21 +84,21 @@ export default class Game extends React.Component {
       xIsNext: !this.state.xIsNext,
     });
   }
-  jumpTo(step) {
+  jumpTo(step: number): void{
     this.setState({
       stepNumber: step,
       xIsNext: step % 2 === 0,
     });
   }
-  render() {
+  render(): JSX.Element {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
 
     const moves = history.map((step, move) => {
-    const desc = move ? "Go to move #" + move : "Go to game start";
-    return (
-        <div className="buttonList">
+      const desc = move ? "Go to move #" + move : "Go to game start";
+      return (
+        <div key={move} className="buttonList">
           <button className="buttonMove" onClick={() => this.jumpTo(move)}>
             {desc}
           </button>

@@ -1,6 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, FunctionComponent } from "react";
 
-const Square = ({ value, onClick }) => {
+interface SquareProps {
+  value: string;
+  onClick: () => void;
+}
+
+const Square: FunctionComponent<SquareProps> = ({ value, onClick }) => {
   return (
     <button className="square" onClick={onClick}>
       {value}
@@ -8,8 +13,13 @@ const Square = ({ value, onClick }) => {
   );
 };
 
-const Board = (props) => {
-  const renderSquare = (i) => {
+interface BoardProps{
+  squares: string[];
+  onClick?: (i: number) => void;
+}
+
+const Board: FunctionComponent<BoardProps> = (props) => {
+  const renderSquare = (i: number): JSX.Element => {
     return <Square value={props.squares[i]} onClick={() => props.onClick(i)} />;
   };
   return (
@@ -33,12 +43,14 @@ const Board = (props) => {
   );
 };
 
-const Game = () => {
-  const [history, setHistory] = useState([{ squares: Array(9).fill(null) }]);
+const Game: FunctionComponent = () => {
+  const [history, setHistory] = useState<{ squares: string[] }[]>([
+    { squares: Array(9).fill(null) },
+  ]);
   const [stepNumber, setStepNumber] = useState(0);
   const [xIsNext, setXIsNext] = useState(true);
 
-  const handleClick = (i) => {
+  const handleClick = (i: number): void => {
     const hist = history.slice(0, stepNumber + 1);
     const current = hist[hist.length - 1];
     const squares = current.squares.slice();
@@ -56,7 +68,7 @@ const Game = () => {
     setStepNumber(hist.length);
     setXIsNext(!xIsNext);
   };
-  const jumpTo = (step) => {
+  const jumpTo = (step: number) => {
     setStepNumber(step);
     setXIsNext(step % 2 === 0);
   };
@@ -102,7 +114,7 @@ const Game = () => {
 
 export default Game;
 
-function calculateWinner(squares) {
+function calculateWinner(squares: string[]): string {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],

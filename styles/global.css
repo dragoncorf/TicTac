@@ -3,6 +3,7 @@ body {
   margin: 20px;
   background-color: deepskyblue;
 }
+
 .saludo{
   display: flex;
   font-weight: bold;
@@ -11,6 +12,7 @@ body {
   border-radius: 10px;
   padding: 10px;
 }
+
 .enlacesIndex{
   font: 14px "Courier New";
   background: #fff;
@@ -20,10 +22,12 @@ body {
   border-radius: 15px;
   margin: 10px;
 }
+
 .buttonList{
   display: flex;
   justify-content: center;
 }
+
 h1{
   display: flex;
   justify-content: center;
